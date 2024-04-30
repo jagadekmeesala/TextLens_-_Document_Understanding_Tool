@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # OpenAI Document Analyzer
 ![Preview Screenshot](preview.png)
 ## Introduction
@@ -114,3 +115,6 @@ The Question Answering tab allows you to ask questions about the context using g
 ## Support
 The application is provided as is without any support.
 Feel free to use it as a starting point for your own application.
+=======
+# OpenAI_Document_Analyzer
+>>>>>>> c803af3438c412181d09e3d9f6d1848bb2cdb830
