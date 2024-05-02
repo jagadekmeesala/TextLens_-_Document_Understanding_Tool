@@ -31,7 +31,7 @@ if 'language' not in st.session_state:
     st.session_state.language='en-US'
 
 load_dotenv(find_dotenv(), override=True)
-os.environ["OPENAI_API_BASE"] = os.environ["AZURE_OPENAI_ENDPOINT"]
+os.environ["OPENAI_API_BASE"] = "https://documentanalyzer3.openai.azure.com/"
 os.environ["OPENAI_API_KEY"] = os.environ["AZURE_OPENAI_API_KEY"]
 os.environ["OPENAI_API_VERSION"] = os.environ["AZURE_OPENAI_API_VERSION"]
 os.environ["OPENAI_API_TYPE"] = "azure"
