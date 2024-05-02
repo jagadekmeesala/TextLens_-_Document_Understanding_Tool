@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # OpenAI Document Analyzer
+=======
+# TextLens_-_Document_Understanding_Tool
+>>>>>>> origin/main
 ## Introduction
 This demo application was built to show how Azure AI Document Intelligence and Azure OpenAI Service can be used to increase the efficiency of document analysis.
 
@@ -115,5 +119,9 @@ The Question Answering tab allows you to ask questions about the context using g
 The application is provided as is without any support.
 Feel free to use it as a starting point for your own application.
 =======
+<<<<<<< HEAD
 # OpenAI_Document_Analyzer
 >>>>>>> c803af3438c412181d09e3d9f6d1848bb2cdb830
+=======
+#TextLens - Document Understanding Tool
+>>>>>>> origin/main
