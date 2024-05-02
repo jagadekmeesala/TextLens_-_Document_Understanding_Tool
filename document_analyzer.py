@@ -31,11 +31,11 @@ if 'language' not in st.session_state:
     st.session_state.language='en-US'
 
 load_dotenv(find_dotenv(), override=True)
-os.environ["OPENAI_API_BASE"] = "https://jagadekproject.openai.azure.com/"
-os.environ["OPENAI_API_KEY"] = "0fddcb6c662c41ff8ca60d6356df07d4"
-os.environ["OPENAI_API_VERSION"] = "2023-03-15"
+os.environ["OPENAI_API_BASE"] = os.environ["AZURE_OPENAI_ENDPOINT"]
+os.environ["OPENAI_API_KEY"] = os.environ["AZURE_OPENAI_API_KEY"]
+os.environ["OPENAI_API_VERSION"] = os.environ["AZURE_OPENAI_API_VERSION"]
 os.environ["OPENAI_API_TYPE"] = "azure"
-speech_config = speechsdk.SpeechConfig(subscription='0cfdc2df0b1240f7968b9c1f0a4ec03f', region='eastus')
+speech_config = speechsdk.SpeechConfig(subscription=os.environ.get('SPEECH_KEY'), region=os.environ.get('SPEECH_REGION'))
 speech_config.speech_recognition_language=st.session_state.language
 audio_config = speechsdk.audio.AudioConfig(use_default_microphone=True)
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_config)
@@ -69,17 +69,15 @@ if 'vector_index_list' not in st.session_state and 'project' in st.session_state
 
 
 if os.path.isfile("projects/"+st.session_state.project+"/logo.png"):
-    st.image("projects/"+st.session_state.project+'/logo.png')    
-else:
-    st.image('img.png')        
+    st.image("projects/"+st.session_state.project+'/logo.png')            
 
-st.subheader('Azure OpenAI - Document Analyzer')
+st.header('TextLens - Document understanding tool')
 if 'document_name' not in st.session_state:
     st.session_state.document_name = ''
 
 with st.sidebar:
     with st.container():
-        st.subheader("Project")
+        st.header("Project")
         with st.expander("Edit Projects"):
             with st.form(key="Add new project",clear_on_submit=True):
                 new_project_name=st.text_input('New Project Name')
@@ -99,7 +97,7 @@ with st.sidebar:
                    
     if(len(st.session_state.project_list)>0):
         with st.container():
-            st.subheader("Document")
+            st.header("Document")
             with st.expander("Add new Document"):
                 # file uploader widget
                 uploaded_file = st.file_uploader('Upload a file:', type=['pdf'])
@@ -138,7 +136,7 @@ with st.sidebar:
 
         if len(st.session_state.vector_index_list)>0:    
             with st.container():
-                st.subheader("Topic")
+                st.header("Topic")
                 with st.expander("Edit Topics"):
                     with st.form(key="Add new Topic",clear_on_submit=True):
                         new_topic_name=st.text_input('New Topic Name')
@@ -353,7 +351,6 @@ if(len(st.session_state.topic_list)>0):
                     st.divider()
                     st.markdown(ftfy.fix_encoding(st.session_state.pagecontent[str(page)]))
                     counter=counter+1
-
 
 
 
