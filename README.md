@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
-# OpenAI Document Analyzer
+# OpenAI Document Analyzer 
 =======
 # TextLens_-_Document_Understanding_Tool
 >>>>>>> origin/main
